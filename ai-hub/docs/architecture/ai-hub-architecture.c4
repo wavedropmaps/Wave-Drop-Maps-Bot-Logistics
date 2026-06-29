@@ -1,0 +1,83 @@
+specification {
+  element folder
+  element file
+  element document
+  element skill
+}
+
+model {
+  agents_md = document 'AGENTS.md' {
+    description 'Entry point router'
+
+    ai_hub = folder 'ai-hub/' {
+
+      memory = folder 'memory/' {
+        bot_infra = folder 'bot-infrastructure/'
+        global_mem = folder 'global-memory/'
+        session_summaries = folder 'session-summaries/'
+      }
+
+      skills = folder 'skills/' {
+        repo_sync = folder 'repo-sync/'
+        session_summary = folder 'session-summary/'
+        likec4 = folder 'likec4/'
+        schedule = folder 'schedule/'
+        wave_analyst = folder 'wave-analyst/'
+        codify = folder 'codify/'
+        code_reviewer = folder 'code-reviewer/'
+        skill_creator = folder 'skill-creator/'
+        session_handoff = folder 'session-handoff/'
+        update_memory = folder 'update-memory/'
+        harness = folder 'harness/'
+        checkpoint = folder 'checkpoint/'
+        gsd = folder 'gsd/'
+        split_and_verify = folder 'split-and-verify/'
+        doc_coauthoring = folder 'doc-coauthoring/'
+      }
+
+      research = folder 'research/' {
+        proof_detection = folder 'proof-detection-model/'
+      }
+
+      docs = folder 'docs/' {
+        architecture = folder 'architecture/'
+      }
+
+      scripts = folder 'scripts/' {
+        hooks = folder 'hooks/'
+      }
+
+      plans = folder 'plans/'
+      goals = folder 'goals/'
+      decisions_log = file 'decisions.log'
+      gates = folder 'gates/'
+      deprecated = folder 'deprecated/'
+    }
+  }
+}
+
+views {
+  view index {
+    title 'AGENTS.md → Complete File Structure'
+    include *
+    autoLayout TopBottom
+  }
+
+  view of ai_hub {
+    title 'ai-hub/ Full Hierarchy'
+    include *
+    autoLayout TopBottom
+  }
+
+  view of memory {
+    title 'memory/ — Documentation Brain'
+    include *
+    autoLayout TopBottom
+  }
+
+  view of skills {
+    title 'skills/ — All 21+ Reusable Skills'
+    include *
+    autoLayout LeftRight
+  }
+}

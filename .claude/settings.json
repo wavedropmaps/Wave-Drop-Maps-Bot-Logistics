@@ -1,0 +1,32 @@
+{
+  "theme": "auto",
+  "temperature": 1,
+  "acceptEdits": true,
+  "permissions": {
+    "tools": {}
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys,json\\ntry:\\n  d=json.load(sys.stdin); f=d.get('tool_input',d).get('file_path',''); sys.exit(1 if any(x in f for x in ['config.json','credentials.json']) else 0)\\nexcept: sys.exit(0)\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/ai-hub/scripts/goals_status.py\" || python \"$CLAUDE_PROJECT_DIR/ai-hub/scripts/goals_status.py\""
+          }
+        ]
+      }
+    ]
+  },
+  "env": {}
+}

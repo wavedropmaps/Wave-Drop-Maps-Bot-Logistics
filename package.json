@@ -1,0 +1,29 @@
+{
+  "name": "wave-logistics-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for managing map request queues with priority-based sorting for Wave gaming community",
+  "main": "Main.py",
+  "type": "module",
+  "scripts": {
+    "start": "python Main.py",
+    "test": "echo \"No tests configured\"",
+    "lint": "python ai-hub/gates/validate.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wavedropmaps/wave-logistics-bot.git"
+  },
+  "author": "Wave Logistics Team",
+  "license": "MIT",
+  "engines": {
+    "python": ">=3.8"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "queue",
+    "priority",
+    "map-requests",
+    "wave-logistics"
+  ]
+}

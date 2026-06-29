@@ -1,0 +1,84 @@
+# ============================================================
+# Wave Logistics Bot Dev — .gitignore
+# Blocks ALL sensitive, machine-specific, and generated files
+# ============================================================
+
+# Secrets — NEVER commit these
+.env
+.env.*
+credentials.json
+tunnel_credentials.json
+cloudflared_config.yml
+
+# Databases — real user data
+*.db
+*.db-wal
+*.db-shm
+
+# Backups & logs — generated data
+database_backups/
+wave_logging_local/
+logs/
+Logs/
+*.log
+*.err.log
+
+# Runtime generated files
+staff_hub_port.txt
+
+# Machine-specific launcher scripts
+*.bat
+*.ps1
+
+# Headroom MCP local state (global tool, not project code)
+.headroom/
+
+# ML model weights — large binaries, never commit
+Models/
+*.pt
+*.safetensors
+
+# YOLO or ML model weights — large binaries
+ai-hub/deprecated/yolo-watermark-detector/weights/
+
+# AI scratch work — throwaway experiments
+ai-hub/scratch/
+
+# Runtime user data folders
+hitl_pending/
+proof_assets/
+queue_images/
+
+# Junk root-level files
+deep_check.png
+verification_.png
+bot_restart_.log
+bot_startup_check.log
+kill_port_5000.log
+dev_server.log
+commands_export.csv
+commands_export.md
+
+# Machine-specific folders
+screenshots/
+mac side stuff/
+data/
+
+# Python & Node generated files
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+tooling/.venv/
+**/.venv/
+
+# Tool caches
+.ruff_cache/
+.wrangler/
+.tmp_screenshot/
+
+# macOS junk
+.DS_Store
+
+# One-time migration scripts that reference credentials
+migrations/import_sheets_to_lifetime.py

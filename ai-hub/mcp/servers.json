@@ -1,0 +1,40 @@
+{
+  "_readme": "Single source of truth for all MCP servers. Run `python ai-hub/scripts/setup_mcp.py` to regenerate agent configs.",
+  "servers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "GitHub API — create PRs, issues, search code"
+    },
+    "camofox": {
+      "command": "node",
+      "args": ["./mcp-camofox-server.cjs"],
+      "env": {
+        "CAMOFOX_API_KEY": "local-dev-key-change-in-production"
+      },
+      "description": "Camofox browser automation"
+    },
+    "context-mode": {
+      "command": "npx",
+      "args": ["-y", "@mksglu/context-mode"],
+      "description": "Context mode switching"
+    },
+    "codebase-search": {
+      "command": "uv",
+      "args": ["run", "--directory", "tooling", "python", "mcp/codebase_search.py"],
+      "description": "Semantic search across the codebase"
+    },
+    "wave-db": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-fetch"],
+      "env": {
+        "WAVE_DB_URL": "${WAVE_DB_URL}",
+        "WAVE_DB_TOKEN": "${WAVE_DB_TOKEN}"
+      },
+      "description": "Remote DB query — hits the Wave Management Bot Flask API. POST {db: 'management'|'logistics'|'logistics-maps', sql: '...'}. Auth via WAVE_DB_TOKEN in .env"
+    }
+  }
+}
