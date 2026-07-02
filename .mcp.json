@@ -16,15 +16,9 @@
         "./mcp-camofox-server.cjs"
       ],
       "env": {
-        "CAMOFOX_API_KEY": "local-dev-key-change-in-production"
+        "CAMOFOX_API_KEY": "local-dev-key-change-in-production",
+        "CAMOUFOX_INSTALL_DIR": "C:\\Users\\kiere\\camoufox-browser"
       }
-    },
-    "context-mode": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@mksglu/context-mode"
-      ]
     },
     "codebase-search": {
       "command": "uv",
